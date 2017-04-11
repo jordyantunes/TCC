@@ -40,15 +40,13 @@ def loadResource(source=0, out="outfile.avi"):
 				denominador = 0
 				for x in range(10):
 					for y in range(10):
-						dividendo += magnitude[(xquadro * 50) + x, (yquadro * 50) + y] * orientacao[(xquadro * 50) + x, (yquadro * 50) + y]
-						denominador += magnitude[(xquadro * 50) + x, (yquadro * 50) + y]
+						dividendo += magnitude[(xquadro * 10) + x, (yquadro * 10) + y] * orientacao[(xquadro * 10) + x, (yquadro * 10) + y]
+						denominador += magnitude[(xquadro * 10) + x, (yquadro * 10) + y]
 				descritor = numpy.append(descritor, dividendo/denominador)	
 
 		descritor_global = numpy.append(descritor_global, descritor)
 
-		return descritor_global
-		if cv2.waitKey(1) & 0xFF == ord('q'):
-			break
+	return descritor_global
 
 	cap.release()
 	# out.release()
