@@ -33,7 +33,9 @@ def loadResource(source=0, out=None):
 		# transforma em escala de cinza
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 		# muda o tamanho para 500,500 (pois o algoritmo pede resizing)
-		gray = cv2.resize(gray, (500,500), fx=0, fy=0)
+		gray = cv2.resize(gray, (320,240), fx=0, fy=0)
+		tamx = 320 / 4
+		tamy = 240 / 3
 
 		gradientex = getGradient(gray, 1, 0)
 		gradientey = getGradient(gray, 0, 1)
@@ -48,22 +50,19 @@ def loadResource(source=0, out=None):
 
 		descritor = numpy.array([0.0])
 
-		for xquadro in range(50):
-			for yquadro in range(50):
+		for xquadro in range(3):
+			for yquadro in range(4):
 				dividendo = 0
 				denominador = 0
-				for x in range(10):
-					for y in range(10):
-						dividendo += magnitude[(xquadro * 10) + x, (yquadro * 10) + y] * orientacao[(xquadro * 10) + x, (yquadro * 10) + y]
-						denominador += magnitude[(xquadro * 10) + x, (yquadro * 10) + y]
-
+				for x in range(tamx):
+					for y in range(tamy):
+						dividendo += magnitude[(xquadro * tamx) + x, (yquadro * tamy) + y] * orientacao[(xquadro * tamx) + x, (yquadro * tamy) + y]
+						denominador += magnitude[(xquadro * tamx) + x, (yquadro * tamy) + y]
 				try:
 					descritor = numpy.append(descritor, dividendo/denominador)
 				except:
 					print(dividendo)
 					print(denominador)
-		print(dividendo)
-		print(denominador)
 
 		if out is not None:
 			saida.write(str(descritor))
@@ -75,6 +74,7 @@ def loadResource(source=0, out=None):
 	cap.release()
 	if out is not None:
 		saida.release()
+	
 	cv2.destroyAllWindows()
 
 def getGradient(frame, x=0, y=0):
@@ -82,7 +82,6 @@ def getGradient(frame, x=0, y=0):
 
 def main():
 	v1 = loadResource(sys.argv[1])
-	v2 = loadResource(sys.argv[1])
 
 	for x in range(v1.shape[0]):
 		print v1[x] - v2[x]
