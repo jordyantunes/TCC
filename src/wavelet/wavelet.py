@@ -44,6 +44,8 @@ def main():
             cv2.imshow("L{}{}".format(x,y), part)
             gradient_signature[y_partitions * x + y] = np.histogram(part)
 
+    cv2.waitKey(0)
+    
 def get_energy(input):
 	shape = np.shape(input)
 	e = np.sum(np.absolute(input)) / (shape[0] * shape[1])
