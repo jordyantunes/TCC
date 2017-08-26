@@ -3,10 +3,17 @@ import numpy as np
 import cv2
 import math
 import medidaOrdinal
+import argparse
 
 def main():
-	needle 		= cv2.VideoCapture(sys.argv[1])
-	haystack 	= cv2.VideoCapture(sys.argv[2])
+	parser = argparse.ArgumentParser(description="Comparador de videos usando assinatura")
+	parser.add_argument('video_original', type=str, help='Video original')
+	parser.add_argument('video_alterado', type=str, help='Video alterado')
+
+	args = parser.parse_args()
+
+	needle 		= cv2.VideoCapture(args.video_original)
+	haystack 	= cv2.VideoCapture(args.video_alterado)
 
 	needle_buffer = np.array([])
 	neddle_fingerprint_buffer = np.array([])
@@ -16,8 +23,10 @@ def main():
 
 	needle_frame_count = needle.get(cv2.CAP_PROP_FRAME_COUNT)
 
-	while (haystack.isOpened()):
+	print("Frame count %s"%needle_frame_count)
+	print(haystack.isOpened())
 
+	while (haystack.isOpened()):
 		haystack_frame_count += 1
 
 		ret_haystack, frame_haystack = haystack.read()
