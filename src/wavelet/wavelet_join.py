@@ -49,7 +49,7 @@ def main():
     cv2.imshow("Test", out)
     nome = sys.argv[1].split(".")
     nome = nome[0] + "_haar_." + nome[1]
-    print("Saving to... {}".format(nome))
+sww22    print("Saving to... {}".format(nome))
     cv2.imwrite(nome, out * 255)
     cv2.waitKey(0)
 
