@@ -3,19 +3,19 @@ import numpy
 import cv2
 import math
 
-def loadResource(source=0, out=None):
+def loadResource(source, out=None):
 	# source serve para definir se a fonte sera um arquivo de video ou a webcam
 
 	print "--------------Gradiente---------------"
 
 	cap = cv2.VideoCapture(source)
 
-	descritor_global = numpy.array([])
+	descritor_global = None
 
 	counter = 0
 
-	if out is not None:
-		saida = open(out, "w")
+	# if out is not None:
+	# 	saida = open(out, "w")
 
 	while (cap.isOpened()):
 
@@ -67,24 +67,29 @@ def loadResource(source=0, out=None):
 		if out is not None:
 			saida.write(str(descritor))
 
-		descritor_global = numpy.append(descritor_global, descritor)
+		if descritor_global is None:
+			descritor_global = numpy.array([descritor])
+		else:
+			descritor_global = numpy.append(descritor_global, [descritor], axis=0)
 
 	return descritor_global
 
 	cap.release()
-	if out is not None:
-		saida.release()
+	# if out is not None:
+	# 	saida.release()
 	
-	cv2.destroyAllWindows()
+	# cv2.destroyAllWindows()
 
 def getGradient(frame, x=0, y=0):
 	return cv2.Sobel(frame, cv2.CV_64F, x, y, ksize=3)
 
-def main():
-	v1 = loadResource(sys.argv[1])
+def run(video_path, filename):
+	resultados = loadResource(video_path)
+	print resultados
+	numpy.savetxt("{}_gradiente.csv".format(filename), resultados, delimiter=",")
 
-	for x in range(v1.shape[0]):
-		print v1[x] - v2[x]
+def main():
+	run(sys.argv[1], sys.argv[2])
 
 if __name__ == '__main__':
 	main()

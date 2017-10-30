@@ -4,12 +4,12 @@ import cv2
 import math
 # import file
 
-def loadResource(source=0, out=None):
+def loadResource(source):
 	# source serve para definir se a fonte sera um arquivo de video ou a webcam
 
 	print "--------------Medida ordinal---------------"
 	cap = cv2.VideoCapture(source)
-	descritor_global = numpy.array([])
+	descritor_global = None
 
 	counter = 0
 	
@@ -30,16 +30,14 @@ def loadResource(source=0, out=None):
 
 		descritor = frame_to_fingerprint(gray, 500,500,5,5)
 
-		descritor_global = numpy.append(descritor_global, descritor)
-
-	return descritor_global
+		if descritor_global is None:
+			descritor_global = numpy.array([descritor])
+		else:
+			descritor_global = numpy.append(descritor_global, [descritor], axis=0)
 
 	cap.release()
 
-	if out is not None:
-		saida.release()
-	
-	cv2.destroyAllWindows()
+	return descritor_global
 
 def pre_process(frame, x, y):
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -63,13 +61,12 @@ def frame_to_fingerprint(frame, x, y, divx, divy):
 
 	return descritor
 
-def main():
-	v1 = loadResource(sys.argv[1])
-	v2 = loadResource(sys.argv[1])
+def run(video_path, filename):
+	resultados = loadResource(video_path)
+	numpy.savetxt("{}_ordinal.csv".format(filename), resultados, delimiter=",")
 
-	for x in range(v1.shape[0]):
-		if v1[x] != v2[x]:
-			print v1[x] - v2[x]
+def main():
+	run(sys.argv[1], sys.argv[2])
 
 if __name__ == '__main__':
 	main()
