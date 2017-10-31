@@ -4,7 +4,7 @@ import cv2
 import math
 # import file
 
-def loadResource(source):
+def ordinalMeasure(source):
 	# source serve para definir se a fonte sera um arquivo de video ou a webcam
 
 	print "--------------Medida ordinal---------------"
@@ -46,14 +46,14 @@ def pre_process(frame, x, y):
 
 	return gray
 
-def frame_to_fingerprint(frame, x, y, divx, divy):
-	descritor = numpy.array([0.0])
+def frame_to_fingerprint(frame, width, heigth, divx, divy):
+	descritor = numpy.array([])
 
 	for xquadro in range(divx):
 		for yquadro in range(divy):
 			acumulador = 0
-			for x in range(x/divx):
-				for y in range(y/divy):
+			for x in range(width/divx):
+				for y in range(heigth/divy):
 					acumulador += frame[xquadro*100 + x, yquadro*100 + y]
 			descritor = numpy.append(descritor, acumulador)	
 
@@ -62,7 +62,7 @@ def frame_to_fingerprint(frame, x, y, divx, divy):
 	return descritor
 
 def run(video_path, filename):
-	resultados = loadResource(video_path)
+	resultados = ordinalMeasure(video_path)
 	numpy.savetxt("{}_ordinal.csv".format(filename), resultados, delimiter=",")
 
 def main():
