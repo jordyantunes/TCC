@@ -2,6 +2,7 @@ import sys
 import numpy
 import cv2
 import math
+from itertools import product
 # import file
 
 def ordinalMeasure(source):
@@ -17,18 +18,13 @@ def ordinalMeasure(source):
 		# ler frame
 		ret, frame = cap.read()
 
-		if counter % 24 == 0:
-			print("Segundo {}".format(counter/24))
-			
-		counter += 1
-
 		if numpy.shape(frame) == ():
 			break
 
 		# transforma em escala de cinza
 		gray = pre_process(frame, 500, 500)
 
-		descritor = frame_to_fingerprint(gray, 500,500,5,5)
+		descritor = frame_to_fingerprint(gray, 5, 5)
 
 		if descritor_global is None:
 			descritor_global = numpy.array([descritor])
@@ -46,16 +42,11 @@ def pre_process(frame, x, y):
 
 	return gray
 
-def frame_to_fingerprint(frame, width, heigth, divx, divy):
+def frame_to_fingerprint(frame, divx, divy):
 	descritor = numpy.array([])
 
-	for xquadro in range(divx):
-		for yquadro in range(divy):
-			acumulador = 0
-			for x in range(width/divx):
-				for y in range(heigth/divy):
-					acumulador += frame[xquadro*100 + x, yquadro*100 + y]
-			descritor = numpy.append(descritor, acumulador)	
+	for x, y in product(range(divx), range(divy)):
+		descritor = numpy.append(descritor, numpy.average(frame[100*x:100*x+100, 100*y:100*y+100]))	
 
 	descritor = numpy.sort(descritor, axis=-1, kind='quicksort')
 
