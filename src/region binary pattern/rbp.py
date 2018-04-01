@@ -134,6 +134,7 @@ def rbp(source):
 
 def run(video_path, filename):
     resultados = rbp(video_path)
+    print(resultados[:10])
     np.savetxt("{}_rbp.csv".format(filename), resultados, delimiter=",")
 
 

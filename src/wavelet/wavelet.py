@@ -77,7 +77,10 @@ def get_energy(input):
 
 def run(video_path, filename):
     resultados = waveletDescriptor(video_path)
-    np.savetxt("{}_wavelet.csv".format(filename), resultados, delimiter=",")
+    nome_arquivo_saida = "{}_wavelet.csv".format(filename)
+    
+    print(resultados)
+    np.savetxt(nome_arquivo_saida, resultados, delimiter=",")
 
 
 def main():
