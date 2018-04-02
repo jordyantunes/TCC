@@ -3,6 +3,26 @@
 	{
 		"selected_items":
 		[
+			[
+				"sub",
+				"subregion"
+			],
+			[
+				"c",
+				"counter"
+			],
+			[
+				"ID",
+				"ID_PARAMETRO"
+			],
+			[
+				"gra",
+				"gradient_signature\tstatement"
+			],
+			[
+				"wa",
+				"waveletDescriptor\tfunction"
+			]
 		]
 	},
 	"buffers":
@@ -11,27 +31,27 @@
 			"file": "src/wavelet/wavelet_join.py",
 			"settings":
 			{
-				"buffer_size": 1997,
+				"buffer_size": 2553,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/medidaOrdinal.py",
+			"file": "src/wavelet/wavelet.py",
 			"settings":
 			{
-				"buffer_size": 1489,
+				"buffer_size": 2570,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 117 files for \"run\"\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\input\\gato_escada_funny_videos.mp4:\n    <binary>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\input\\gato_funny_videos.mp4:\n    <binary>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\input\\gato_original.mp4:\n    <binary>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\input\\simpsons.avi:\n    <binary>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\preprocessor\\2001od.mp4:\n    <binary>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\frameDiff.py:\n   21  \treturn descritores \n   22  \n   23: def run(video_path, filename):\n   24  \tcap = cv2.VideoCapture(video_path)\n   25  \tresultados = frameDiff(cap)\n   ..\n   29  \t\n   30  def main():\n   31: \trun(sys.argv[1], sys.argv[2])\n   32  \n   33  if __name__ == \"__main__\":\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\gradiente.py:\n   84  \treturn cv2.Sobel(frame, cv2.CV_64F, x, y, ksize=3)\n   85  \n   86: def run(video_path, filename):\n   87  \tresultados = loadResource(video_path)\n   88  \tprint resultados\n   ..\n   90  \n   91  def main():\n   92: \trun(sys.argv[1], sys.argv[2])\n   93  \n   94  if __name__ == '__main__':\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\medidaOrdinal.py:\n   53  \treturn descritor\n   54  \n   55: def run(video_path, filename):\n   56  \tresultados = ordinalMeasure(video_path)\n   57  \tnumpy.savetxt(\"{}_ordinal.csv\".format(filename), resultados, delimiter=\",\")\n   58  \n   59  def main():\n   60: \trun(sys.argv[1], sys.argv[2])\n   61  \n   62  if __name__ == '__main__':\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\.idea\\src.iml:\n    6      <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n    7    </component>\n    8:   <component name=\"TestRunnerService\">\n    9      <option name=\"projectConfiguration\" value=\"Nosetests\" />\n   10:     <option name=\"PROJECT_TEST_RUNNER\" value=\"Nosetests\" />\n   11    </component>\n   12  </module>\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\.idea\\workspace.xml:\n   10      <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n   11    </component>\n   12:   <component name=\"JsBuildToolGruntFileManager\" detection-done=\"true\" sorting=\"DEFINITION_ORDER\" />\n   13    <component name=\"JsBuildToolPackageJson\" detection-done=\"true\" sorting=\"DEFINITION_ORDER\" />\n   14    <component name=\"JsGulpfileManager\">\n   ..\n   56      <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n   57    </component>\n   58:   <component name=\"RunDashboard\">\n   59      <option name=\"ruleStates\">\n   60        <list>\n   ..\n   88        <window_info id=\"Event Log\" active=\"false\" anchor=\"bottom\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"false\" show_stripe_button=\"true\" weight=\"0.33\" sideWeight=\"0.5\" order=\"-1\" side_tool=\"true\" content_ui=\"tabs\" />\n   89        <window_info id=\"Database\" active=\"false\" anchor=\"right\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"false\" show_stripe_button=\"true\" weight=\"0.33\" sideWeight=\"0.5\" order=\"-1\" side_tool=\"false\" content_ui=\"tabs\" />\n   90:       <window_info id=\"Run\" active=\"false\" anchor=\"bottom\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"false\" show_stripe_button=\"true\" weight=\"0.33\" sideWeight=\"0.5\" order=\"2\" side_tool=\"false\" content_ui=\"tabs\" />\n   91        <window_info id=\"Version Control\" active=\"false\" anchor=\"bottom\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"false\" show_stripe_button=\"false\" weight=\"0.33\" sideWeight=\"0.5\" order=\"-1\" side_tool=\"false\" content_ui=\"tabs\" />\n   92        <window_info id=\"Python Console\" active=\"false\" anchor=\"bottom\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"false\" show_stripe_button=\"true\" weight=\"0.33\" sideWeight=\"0.5\" order=\"-1\" side_tool=\"false\" content_ui=\"tabs\" />\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\camera-motion\\camera-motion\\klt\\convolve.c:\n   63    ConvolutionKernel *gaussderiv)\n   64  {\n   65:   const float factor = 0.01f;   /* for truncating tail */\n   66    int i;\n   67  \n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\camera-motion\\camera-motion\\klt\\Makefile:\n    5  ######################################################################\n    6  # -DNDEBUG prevents the assert() statements from being included in \n    7: # the code.  If you are having problems running the code, you might \n    8  # want to comment this line to see if an assert() statement fires.\n    9  FLAG1 = -DNDEBUG\n   ..\n   13  # routine.  Otherwise it will use a quicksort routine that takes\n   14  # advantage of our specific data structure to greatly reduce the\n   15: # running time on some machines.  Uncomment this line if for some\n   16  # reason you are unhappy with the special routine.\n   17  # FLAG2 = -DKLT_USE_QSORT\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\camera-motion\\camera-motion\\PNG\\png.c:\n 1339  sequences to generate a hash value from the stream bytes. Setting it to 3\n 1340  gives exactly the same compression as the brute force method, since deflate's\n 1341: run length encoding starts with lengths of 3. Setting it to higher values,\n 1342  like 6, can make the encoding faster (not always though!), but will cause the\n 1343  encoding to miss any length between 3 and this value, so that the compression\n ....\n 1681    another huffman tree is used for the dist values (\"d\"). These two trees are\n 1682    stored using their code lengths, and to compress even more these code lengths\n 1683:   are also run-length encoded and huffman compressed. This gives a huffman tree\n 1684    of code lengths \"cl\". The code lenghts used to describe this third tree are\n 1685    the code length code lengths (\"clcl\").\n ....\n 1695    uivector frequencies_cl; /*frequency of code length codes*/\n 1696    uivector bitlen_lld; /*lit,len,dist code lenghts (int bits), literally (without repeat codes).*/\n 1697:   uivector bitlen_lld_e; /*bitlen_lld encoded with repeat codes (this is a rudemtary run length compression)*/\n 1698    /*bitlen_cl is the code length code lengths (\"clcl\"). The bit lengths of codes to represent tree_cl\n 1699    (these are written as is in the file, it would be crazy to compress these using yet another huffman\n ....\n 1770      for(i = 0; i < numcodes_d; i++) uivector_push_back(&bitlen_lld, HuffmanTree_getLength(&tree_d, (unsigned)i));\n 1771  \n 1772:     /*run-length compress bitlen_ldd into bitlen_lld_e by using repeat codes 16 (copy length 3-6 times),\n 1773      17 (3-10 zeroes), 18 (11-138 zeroes)*/\n 1774      for(i = 0; i < (unsigned)bitlen_lld.size; i++)\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\minetto\\camera-motion\\klt\\convolve.c:\n   63    ConvolutionKernel *gaussderiv)\n   64  {\n   65:   const float factor = 0.01f;   /* for truncating tail */\n   66    int i;\n   67  \n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\minetto\\camera-motion\\klt\\Makefile:\n    5  ######################################################################\n    6  # -DNDEBUG prevents the assert() statements from being included in \n    7: # the code.  If you are having problems running the code, you might \n    8  # want to comment this line to see if an assert() statement fires.\n    9  FLAG1 = -DNDEBUG\n   ..\n   13  # routine.  Otherwise it will use a quicksort routine that takes\n   14  # advantage of our specific data structure to greatly reduce the\n   15: # running time on some machines.  Uncomment this line if for some\n   16  # reason you are unhappy with the special routine.\n   17  # FLAG2 = -DKLT_USE_QSORT\n\nC:\\Users\\Jordy\\Documents\\GitHub\\TCC\\src\\minetto\\camera-motion\\PNG\\png.c:\n 1339  sequences to generate a hash value from the stream bytes. Setting it to 3\n 1340  gives exactly the same compression as the brute force method, since deflate's\n 1341: run length encoding starts with lengths of 3. Setting it to higher values,\n 1342  like 6, can make the encoding faster (not always though!), but will cause the\n 1343  encoding to miss any length between 3 and this value, so that the compression\n ....\n 1681    another huffman tree is used for the dist values (\"d\"). These two trees are\n 1682    stored using their code lengths, and to compress even more these code lengths\n 1683:   are also run-length encoded and huffman compressed. This gives a huffman tree\n 1684    of code lengths \"cl\". The code lenghts used to describe this third tree are\n 1685    the code length code lengths (\"clcl\").\n ....\n 1695    uivector frequencies_cl; /*frequency of code length codes*/\n 1696    uivector bitlen_lld; /*lit,len,dist code lenghts (int bits), literally (without repeat codes).*/\n 1697:   uivector bitlen_lld_e; /*bitlen_lld encoded with repeat codes (this is a rudemtary run length compression)*/\n 1698    /*bitlen_cl is the code length code lengths (\"clcl\"). The bit lengths of codes to represent tree_cl\n 1699    (these are written as is in the file, it would be crazy to compress these using yet another huffman\n ....\n 1770      for(i = 0; i < numcodes_d; i++) uivector_push_back(&bitlen_lld, HuffmanTree_getLength(&tree_d, (unsigned)i));\n 1771  \n 1772:     /*run-length compress bitlen_ldd into bitlen_lld_e by using repeat codes 16 (copy length 3-6 times),\n 1773      17 (3-10 zeroes), 18 (11-138 zeroes)*/\n 1774      for(i = 0; i < (unsigned)bitlen_lld.size; i++)\n\n42 matches across 16 files\n",
+			"file": "src/region binary pattern/rbp.py",
 			"settings":
 			{
-				"buffer_size": 9110,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 3871,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -42,10 +62,30 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "ins",
+		"height": 269.0,
+		"last_filter": "uu",
 		"selected_items":
 		[
+			[
+				"uu",
+				"Generate UUID v4"
+			],
+			[
+				"pl",
+				"Set Syntax: PL/SQL (Oracle)"
+			],
+			[
+				"uui\t",
+				"Generate UUID v4"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"plsql",
+				"Set Syntax: PL/SQL (Oracle)"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -53,13 +93,9 @@
 			[
 				"remo",
 				"Package Control: Remove Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 412.0
+		"width": 444.0
 	},
 	"console":
 	{
@@ -81,11 +117,18 @@
 	[
 		"/C/Users/Jordy/Documents/GitHub/TCC",
 		"/C/Users/Jordy/Documents/GitHub/TCC/src",
-		"/C/Users/Jordy/Documents/GitHub/TCC/src/region binary pattern",
-		"/C/Users/Jordy/Documents/GitHub/TCC/src/wavelet"
+		"/C/Users/Jordy/Documents/GitHub/TCC/src/region binary pattern"
 	],
 	"file_history":
 	[
+		"/C/Users/Jordy/OneDrive/FCOPEL/log_create2.sql",
+		"/C/Users/Jordy/OneDrive/FCOPEL/log_create.sql",
+		"/C/Users/Jordy/Documents/GitHub/TCC/src/region binary pattern/circulo.py",
+		"/C/Users/Jordy/Documents/log_fcopel.sql",
+		"/C/Users/Jordy/Documents/docker/getting_started/Dockerfile",
+		"/C/Users/Jordy/Documents/docker/getting_started/requirements.txt",
+		"/C/Users/Jordy/Documents/docker/getting_started/app.py",
+		"/C/Users/Jordy/Documents/GitHub/TCC/projeto.sublime-project"
 	],
 	"find":
 	{
@@ -104,14 +147,49 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"wait",
+			"shape",
+			"wait",
+			"\\t",
+			"(?<=[a-zA-Z0-9])/(?=[a-zA-Z0-9])",
+			"(?<=[a-zA-Z0-9])\\+(?=[a-zA-Z0-9])",
+			"(?<=[a-zA-Z])\\+(?=[a-zA-Z])",
+			"(?<=[a-zA-Z])/(?=[a-zA-Z])",
+			"[+/-]",
+			"[+/-\\*]",
+			"[+/-*]",
+			"\\s]",
+			"\\[\\s",
+			"\\t",
+			",(?=[a-zA-Z])",
+			"SYSTIMESTAMP",
+			"NOW\\(\\)",
+			":[a-zA-Z]+",
+			"imsho",
+			"wait",
+			"energy",
+			"ret",
+			"numpy",
 			"run"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"    ",
+			" / ",
+			" + ",
+			" / ",
+			"]",
+			"[",
+			"    ",
+			", ",
+			"SYSDATE",
+			"SYSTIMESTAMP()",
+			"NULL",
+			"np"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -122,7 +200,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -131,199 +209,121 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1997,
+						"buffer_size": 2553,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								65,
-								65
+								2493,
+								2493
 							]
 						],
 						"settings":
 						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/medidaOrdinal.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1489,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1261,
-								1409
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 254.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
+					"file": "src/wavelet/wavelet.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9110,
+						"buffer_size": 2570,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										517,
-										520
-									],
-									[
-										665,
-										668
-									],
-									[
-										870,
-										873
-									],
-									[
-										1009,
-										1012
-									],
-									[
-										1184,
-										1187
-									],
-									[
-										1378,
-										1381
-									],
-									[
-										1621,
-										1624
-									],
-									[
-										1743,
-										1746
-									],
-									[
-										1993,
-										1996
-									],
-									[
-										2339,
-										2342
-									],
-									[
-										2945,
-										2948
-									],
-									[
-										3851,
-										3854
-									],
-									[
-										4176,
-										4179
-									],
-									[
-										4462,
-										4465
-									],
-									[
-										4870,
-										4873
-									],
-									[
-										5311,
-										5314
-									],
-									[
-										5786,
-										5789
-									],
-									[
-										6178,
-										6181
-									],
-									[
-										6560,
-										6563
-									],
-									[
-										6879,
-										6882
-									],
-									[
-										7165,
-										7168
-									],
-									[
-										7567,
-										7570
-									],
-									[
-										8008,
-										8011
-									],
-									[
-										8483,
-										8486
-									],
-									[
-										8875,
-										8878
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1595,
+								1595
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 576.0,
+						"translation.y": 201.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/region binary pattern/rbp.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3097,
+								3097
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1221.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -331,7 +331,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -368,7 +368,7 @@
 	"project": "projeto.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -377,6 +377,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"rbp",
+				"src\\region binary pattern\\rbp.py"
+			],
+			[
+				"wave",
+				"src\\wavelet\\wavelet.py"
+			],
 			[
 				"jo",
 				"src\\wavelet\\wavelet_join.py"
@@ -409,7 +417,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 227.0,
 	"status_bar_visible": true,
 	"template_settings":

@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS comparadores (
 
 CREATE TABLE IF NOT EXISTS distorcoes (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	descricao CHAR(50));
+	descricao CHAR(50),
+	slug CHAR(50));
 
 CREATE TABLE IF NOT EXISTS videos (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,12 +17,13 @@ CREATE TABLE IF NOT EXISTS videos (
 	distorcao_id INTEGER NULL,
 	video_original INTEGER NULL, 
 	FOREIGN KEY(distorcao_id) REFERENCES distorcoes(id),
-	FOREIGN KEY(video_original	) REFERENCES video(id));
+	FOREIGN KEY(video_original) REFERENCES video(id));
 
 CREATE TABLE IF NOT EXISTS assinaturas (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	id_video INTEGER NOT NULL,
 	id_algoritmo INTEGER,
+	filename CHAR(200),
 	FOREIGN	KEY(id_video) REFERENCES videos(id),
 	FOREIGN	KEY(id_algoritmo) REFERENCES algoritmos(id));
 
@@ -36,3 +38,8 @@ CREATE TABLE IF NOT EXISTS testes (
 	FOREIGN	KEY(id_video_original) REFERENCES videos(id),
 	FOREIGN	KEY(id_video_teste) REFERENCES videos(id),
 	FOREIGN	KEY(id_comparador) REFERENCES comparadores(id));
+
+
+# ------------------------------------
+INSERT INTO algoritmos (`nome`) VALUES ('Gradiente'), ('FrameDiff'), ('Medida Ordinal'), ('Wavelets'), ('RBP'), ('Scene Frame');
+INSERT INTO distorcoes ()
