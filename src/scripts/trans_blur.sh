@@ -7,7 +7,7 @@ ffmpeg -i $1 %05d.png;
 for image in $(ls *.png); do
    name=`echo ${image} | cut -d"." -f1`;
    convert ${image} -channel RGBA  -blur 0x3 ${name}.png;
-   #echo $name;
+   echo $name;
 done
 
 rm -f $2_${transform}.avi;
