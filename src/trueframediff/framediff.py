@@ -3,15 +3,40 @@ import sys
 import numpy as np
 from math import log, pow
 import util
+import peakutils
 
 
-def getvideoindex(feat, window_size, number_peaks, threashold):
+def getvideoindex(feat, w, n, t):
+    """
+        Controi o indice da assinatura
+
+        :param feat: <Features> feature
+        :param w: Tamanho da janela
+        :param n: Número de índices
+        :param t: Limiar para encontrar picos
+        :return Tupla contendo indices dos picos e os valores
+        :rtype (np.array, np.array)
+    """
     dY = util.getParamVectorized(feat, 'dY')
+    dY = util.butter_lowpass_filter(dY, 3.5, 30.0)
     stillness = util.getParamVectorized(feat, 'stillness')
-    credits = util.getParamVectorized(feat, 'stillness')
+    credits = util.getParamVectorized(feat, 'credits')
 
-    window_number = 0
-    return dY
+    feat_filter = np.logical_and(stillness < 90, credits < 90)
+    dY = dY[feat_filter][:w]
+    peak_indices = peakutils.indexes(dY, thres=t, min_dist=15)
+    # peak_indices, peaks = util.findPeaks(dY, n, t)
+
+    peak_indices = peak_indices.astype(int)
+    indices = dY[peak_indices]
+
+    if indices.shape[0] < n:
+        raise Exception("Número de picos({}) < n({})".format(indices.shape[0], n))
+
+    indices = indices[:n]
+    peak_indices = peak_indices[:n]
+
+    return (peak_indices, indices)
 
 
 class Features:
