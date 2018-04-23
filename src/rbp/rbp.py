@@ -96,7 +96,7 @@ def generate_rbp(sub_luminancia, luminancia):
 
 
 def rbp(source):
-    print("--------------Wavelets---------------")
+    print("--------------RBP---------------")
     cap = cv2.VideoCapture(source)
 
     descritor_final = np.array([])
@@ -132,10 +132,13 @@ def rbp(source):
     return descritor_final
 
 
-def run(video_path, filename):
+def run(video_path, filename=None):
     resultados = rbp(video_path)
-    print(resultados[:10])
-    np.savetxt("{}_rbp.csv".format(filename), resultados, delimiter=",")
+    
+    if filename is not None:
+        np.savetxt("{}_rbp.csv".format(filename), resultados, delimiter=",")
+
+    return resultados
 
 
 def main():

@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS algoritmos (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nome CHAR(50));
 
+ALTER TABLE algoritmos ADD COLUMN slug VARCHAR(50);
+
 CREATE TABLE IF NOT EXISTS comparadores (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nome CHAR(50));
@@ -42,7 +44,7 @@ CREATE TABLE IF NOT EXISTS testes (
 	FOREIGN	KEY(id_comparador) REFERENCES comparadores(id));
 
 
-INSERT INTO algoritmos (`nome`) VALUES ('Gradiente'), ('FrameDiff'), ('Medida Ordinal'), ('Wavelets'), ('RBP'), ('Scene Frame');
+INSERT INTO algoritmos (`nome`, `slug`) VALUES ('Gradiente', 'gradiente'), ('FrameDiff', 'framediff'), ('Medida Ordinal', 'medidaordinal'), ('Wavelets', 'wavelets'), ('RBP', 'rbp'), ('Scene Frame', 'sceneframe');
 INSERT INTO distorcoes (`descricao`, `slug`) VALUES 
 ("BIG - aumentar tamanho do video", "big"),
 ("Desfoque", "blur"),
@@ -58,3 +60,4 @@ INSERT INTO distorcoes (`descricao`, `slug`) VALUES
 ("Diminuir tamanho do vídeo", "small"),
 ("Adição de legenda", "text"),
 ("Adição de marca d'água", "wmark");
+INSERT INTO comparadores (`nome`) VALUES ('manhattan_distance'), ('euclidean_distance');

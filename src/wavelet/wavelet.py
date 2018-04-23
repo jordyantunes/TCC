@@ -70,17 +70,19 @@ def waveletDescriptor(source):
 
 
 def get_energy(input):
-	shape = np.shape(input)
-	e = np.sum(np.absolute(input)) / (shape[0] * shape[1])
-	return e
+    shape = np.shape(input)
+    e = np.sum(np.absolute(input)) / (shape[0] * shape[1])
+    return e
 
 
-def run(video_path, filename):
+def run(video_path, filename=None):
     resultados = waveletDescriptor(video_path)
-    nome_arquivo_saida = "{}_wavelet.csv".format(filename)
-    
-    print(resultados)
-    np.savetxt(nome_arquivo_saida, resultados, delimiter=",")
+    # nome_arquivo_saida = "{}_wavelet.csv".format(filename)
+
+    if filename is not None:
+        np.save(filename, resultados)
+
+    return resultados
 
 
 def main():

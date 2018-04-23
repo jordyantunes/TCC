@@ -2,7 +2,7 @@ import cv2
 import sys
 import numpy as np
 from math import log, pow
-import util
+from . import util
 import peakutils
 
 
@@ -90,11 +90,14 @@ def framediff(source):
 
         frame_array = np.append(frame_array, features)
 
-        # cv2.imshow("Trailer", imagem)
-        # if cv2.waitKey(1) & 0xFF == ord('q'):
-        #     break
-    print("")
-    return frame_array
+    dY = util.butter_lowpass_filter(util.getParamVectorized(frame_array, "dY"), 3.5, 30.0)
+    mean_dY = np.mean(dY)
+    dY = (dY - mean_dY) / (-np.min(dY - mean_dY))
+    Y = util.butter_lowpass_filter(util.getParamVectorized(frame_array, "Y"), 3.5, 30.0)
+    mean_Y = np.mean(Y)
+    Y = (Y - mean_Y) / (-np.min(Y - mean_Y))
+
+    return np.array([(dY[i], Y[i]) for i in range(len(dY))])
 
 
 def run(source):
